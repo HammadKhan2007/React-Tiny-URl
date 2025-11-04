@@ -3,7 +3,7 @@ import Header from './components/Header';
 import ShortenForm from './components/ShortenForm';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
-import './App.css'; // Apni main CSS file import karein
+import './App.css';
 
 function App() {
   return (

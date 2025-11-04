@@ -19,22 +19,12 @@ function ShortenForm() {
 
     setLoading(true);
     try {
-      // Yahan aap real TinyURL ya kisi aur URL shortening API ko call kar sakte hain.
-      // Ya phir, agar aap self-hosted solution bana rahe hain, to apne backend ko call karein.
-      // Abhi ke liye, hum ek dummy response dikha rahe hain.
-      
-      // Example API call (dummy for now, replace with real API if you have one)
-      // const response = await axios.post('/api/shorten', {
-      //   long_url: longUrl,
-      //   alias: alias || undefined, // Agar alias khali ho to na bhejein
-      // });
-      // setShortenedUrl(response.data.short_url);
-
-      // Dummy API response delay
-      await new Promise(resolve => setTimeout(resolve, 1500)); 
-      const dummyShortUrl = `https://tinyurl.com/${alias || Math.random().toString(36).substring(2, 8)}`;
-      setShortenedUrl(dummyShortUrl);
-
+      const response = await axios.post('http://localhost:5000/api/shorten', {
+  long_url: longUrl,
+  alias: alias || undefined,
+});
+setShortenedUrl(response.data.short_url);
+console.log('Shortened URL:', shortenedUrl);
     } catch (err) {
       setError('Failed to shorten URL. Please try again.');
       console.error(err);
