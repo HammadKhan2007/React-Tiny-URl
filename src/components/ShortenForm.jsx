@@ -19,7 +19,7 @@ function ShortenForm() {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/shorten', {
+      const response = await axios.post('http://backendtinyurl-production.up.railway.app/api/shorten', {
   long_url: longUrl,
   alias: alias || undefined,
 });
