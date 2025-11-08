@@ -87,6 +87,7 @@ console.log('Shortened URL:', shortenedUrl);
               {shortenedUrl}
             </a>
             <button
+            type='button'
               onClick={() => navigator.clipboard.writeText(shortenedUrl)}
               className="btn btn-copy"
             >
