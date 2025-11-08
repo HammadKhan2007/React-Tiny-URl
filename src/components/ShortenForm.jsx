@@ -17,7 +17,7 @@ function ShortenForm() {
       return;
     }
 
-    setLoading(true);
+    setLoading(false);
     try {
       const response = await axios.post('http://backendtinyurl-production.up.railway.app/api/shorten', {
   long_url: longUrl,
@@ -69,9 +69,10 @@ console.log('Shortened URL:', shortenedUrl);
         </div>
 
         <button
-          type="submit"
+          type="button"
           className="btn btn-shorten"
           disabled={loading}
+          onClick={handleShorten}
         >
           {loading ? 'Shortening...' : 'Shorten URL'}
         </button>
