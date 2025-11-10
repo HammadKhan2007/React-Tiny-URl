@@ -17,14 +17,14 @@ function ShortenForm() {
       return;
     }
 
-    setLoading(false);
+    setLoading(true);
     try {
       const response = await axios.post('https://backendtinyurl-production.up.railway.app/api/shorten', {
   long_url: longUrl,
   alias: alias || undefined,
 });
 setShortenedUrl(response.data.short_url);
-console.log('Shortened URL:', shortenedUrl);
+console.log('Shortened URL:', response.data.short_url);
     } catch (err) {
       setError('Failed to shorten URL. Please try again.');
       console.error(err);
@@ -72,7 +72,6 @@ console.log('Shortened URL:', shortenedUrl);
           type="submit"
           className="btn btn-shorten"
           disabled={loading}
-          onClick={handleShorten}
         >
           {loading ? 'Shortening...' : 'Shorten URL'}
         </button>
@@ -87,7 +86,7 @@ console.log('Shortened URL:', shortenedUrl);
               {shortenedUrl}
             </a>
             <button
-            type='submit'
+            type='button'
               onClick={() => navigator.clipboard.writeText(shortenedUrl)}
               className="btn btn-copy"
             >
