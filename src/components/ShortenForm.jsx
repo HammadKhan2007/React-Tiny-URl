@@ -69,7 +69,7 @@ console.log('Shortened URL:', shortenedUrl);
         </div>
 
         <button
-          type="button"
+          type="submit"
           className="btn btn-shorten"
           disabled={loading}
           onClick={handleShorten}
@@ -87,7 +87,7 @@ console.log('Shortened URL:', shortenedUrl);
               {shortenedUrl}
             </a>
             <button
-            type='button'
+            type='submit'
               onClick={() => navigator.clipboard.writeText(shortenedUrl)}
               className="btn btn-copy"
             >
